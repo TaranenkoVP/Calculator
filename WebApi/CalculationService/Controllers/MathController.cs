@@ -30,7 +30,7 @@ namespace CalculationService.Controllers
         public async Task<OperationFinalResult> Calculate([FromQuery] TwoParamsMathOperationQuery operationQuery)
         {
             //TODO automapper
-            var operation = new MathOperation()
+            var operation = new OperationRequest()
             {
                 OperationType = operationQuery.OperationType,
                 Parameter1 = operationQuery.Parameter1,

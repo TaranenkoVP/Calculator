@@ -1,0 +1,23 @@
+<body>
+  <app-nav-menu></app-nav-menu>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+  <div>
+    <div>
+      <input type="number" [(ngModel)]="parameter1" />`
+
+      <select [(ngModel)]="selectedType">
+        <option *ngFor="let operationType of operationTypes">
+          {{operationType.symbol}}
+        </option>
+      </select>
+      <input type="number" [(ngModel)]="parameter2" />`
+
+      <span> = </span>
+
+      <input type="text" [(ngModel)]="result" />`
+      <button (click)="calculate()"> Count </button>
+    </div>
+  </div>
+</body>

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BusinessLayer.Models
 {
-    public class MathOperation : IMathOperation
+    public class OperationRequest : IMathOperation
     {
         public string OperationType { get; set; }
         public int Parameter1 { get; set; }

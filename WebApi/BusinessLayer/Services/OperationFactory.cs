@@ -16,6 +16,10 @@ namespace CalculationService.Services
             //TO DO consider reflection to map OperationType with query model
             if (operationQuery.OperationType.ToLower() == "addition")
                 return new AdditionOperation(operationQuery);
+            if (operationQuery.OperationType.ToLower() == "substract")
+                return new SubstractOperation(operationQuery);
+            if (operationQuery.OperationType.ToLower() == "multiply")
+                return new MultiplyOperation(operationQuery);
             else
                 throw new Exception("Unknown operation type");
         }

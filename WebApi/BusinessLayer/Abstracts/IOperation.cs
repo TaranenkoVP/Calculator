@@ -2,6 +2,7 @@
 {
     public interface IOperation
     {
-        int Calculate();
+        string Symbol { get; }
+        int Calculate(int param1, int param2);
     }
 }

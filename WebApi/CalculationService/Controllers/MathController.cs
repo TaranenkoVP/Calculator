@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using BusinessLayer.Abstracts;
-using BusinessLayer.Models;
 using CalculationService.Abstracts;
-using CalculationService.Interface;
-using CalculationService.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace CalculationService.Controllers
 {
@@ -17,33 +12,35 @@ namespace CalculationService.Controllers
     public class MathController : ControllerBase
     {
         private readonly IMathService _mathService;
-        private readonly ILogger<MathController> _logger;
 
-        public MathController(IMathService mathService, ILogger<MathController> logger)
+        public MathController(IMathService mathService)
         {
             _mathService = mathService;
-            _logger = logger;
         }
 
         [HttpGet]
         [Route("calculate")]
-        public async Task<OperationFinalResult> Calculate([FromQuery] TwoParamsOperationQuery operationQuery)
+        public async Task<ActionResult<OperationResult>> Calculate([FromQuery] string query)
         {
-            //TODO automapper
-            var operation = new OperationDetails()
-            {
-                OperationType = operationQuery.OperationType,
-                Parameter1 = operationQuery.Parameter1,
-                Parameter2 = operationQuery.Parameter2
-            };
+            // https://localhost:44397/api/Math/calculate?query=11%2B61 example
 
-            var results = _mathService.Calculate(operation);
+            if (string.IsNullOrWhiteSpace(query))
+                return BadRequest();
 
-            return new OperationFinalResult()
+            var result = new OperationResult();
+
+            try
             {
-                Result = results.Result,
-                ResultColor = results.ResultColor
-            };
+                var results = _mathService.Calculate(query);
+                result.Result = results.Result;
+                result.Color = results.ResultColor;
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+
+            return result;
         }
     }
 }

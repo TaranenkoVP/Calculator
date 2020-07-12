@@ -16,24 +16,26 @@ export class AppComponent {
   constructor(private http: HttpClient) { }
 
   public operationTypes: OperationTypes[] =
-  [
+    [
       {
-        data: "addition", symbol: "+"
+        data: "%2B", symbol: "+"
       },
       {
-        data: "Substract", symbol: "-"
+        data: "-", symbol: "-"
       },
       {
-        data: "multiply", symbol: "*"
+        data: "%2A", symbol: "*"
+      },
+      {
+        data: "%2F", symbol: "/"
       }
     ];
 
 
   public calculate() {
-
     const baseUrlToApi = "https://localhost:44397";
     let type = this.operationTypes.filter(type => type.symbol === this.selectedType)[0];
-    let url = baseUrlToApi + "/api/Math/calculate?operationType=" + type.data + "&parameter1=" + this.parameter1 + "&parameter2=" + this.parameter2;
+    let url = baseUrlToApi + "/api/Math/calculate?query=" + this.parameter1 + type.data + this.parameter2;
 
     this.http.get<OperationResult>(url).subscribe(result => {
       this.result = result.result;

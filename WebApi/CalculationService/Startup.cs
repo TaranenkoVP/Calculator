@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using BusinessLayer.Abstracts;
 using BusinessLayer.Services;
 using CalculationService.Abstracts;
-using CalculationService.Services;
+using CalculationService.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,10 +29,11 @@ namespace CalculationService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-
             services.AddControllers();
-            services.AddSingleton<IOperationFactory, OperationFactory>();
+            services.AddSingleton<IOperation, AdditionOperation>();
+            services.AddSingleton<IOperation, SubstractOperation>();
+            services.AddSingleton<IOperation, MultiplyOperation>();
+            services.AddSingleton<IOperation, DivisionOperation>();
             services.AddSingleton<IMathService, MathService>();
         }
 

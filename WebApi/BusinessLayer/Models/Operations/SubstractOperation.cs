@@ -1,14 +1,12 @@
-﻿using BusinessLayer.Models.Operations;
-using CalculationService.Abstracts;
-using CalculationService.Interface;
+﻿using CalculationService.Abstracts;
 
 namespace CalculationService.Models
 {
-    public class SubstractOperation : BaseTwoParamsOperation, IOperation
+    public class SubstractOperation : IOperation
     {
-        public SubstractOperation(IOperationDetails query) : base(query) { }
+        public string Symbol => "-";
 
-        public int Calculate()
+        public int Calculate(int parameter1, int parameter2)
         {
             return parameter1 - parameter2;
         }

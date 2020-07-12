@@ -8,7 +8,7 @@ namespace CalculationService.Models
         private int parameter1;
         private int parameter2;
 
-        public AdditionOperation(IMathOperation query)
+        public AdditionOperation(IOperationDetails query)
         {
             parameter1 = query.Parameter1;
             parameter2 = query.Parameter2;

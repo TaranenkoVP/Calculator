@@ -1,6 +1,6 @@
 ﻿namespace CalculationService.Interface
 {
-    public interface IOperationRequest
+    public interface IOperationDetails
     {
         string OperationType { get; set; }
         int Parameter1 { get; set; }

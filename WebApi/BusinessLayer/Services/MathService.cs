@@ -17,9 +17,9 @@ namespace BusinessLayer.Services
             _operationFactory = operationFactory;
         }
 
-        public OperationResult Culculate(IMathOperation operationQuery)
+        public OperationResult Calculate(IOperationDetails operationQuery)
         {
-            var operation = _operationFactory.GetStrategy(operationQuery);
+            var operation = _operationFactory.GetOperation(operationQuery);
             var resultNumber = operation.Calculate();
             var result = new OperationResult() { Result = resultNumber };
             //TODO use automapper

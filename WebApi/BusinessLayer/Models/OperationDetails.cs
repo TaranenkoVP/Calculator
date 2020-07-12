@@ -2,7 +2,7 @@
 
 namespace BusinessLayer.Models
 {
-    public class OperationRequest : IOperationRequest
+    public class OperationDetails : IOperationDetails
     {
         public string OperationType { get; set; }
         public int Parameter1 { get; set; }

@@ -7,7 +7,7 @@ namespace BusinessLayer.Models.Operations
         protected int parameter1;
         protected int parameter2;
 
-        public BaseTwoParamsOperation(IOperationRequest query)
+        public BaseTwoParamsOperation(IOperationDetails query)
         {
             parameter1 = query.Parameter1;
             parameter2 = query.Parameter2;

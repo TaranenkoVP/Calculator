@@ -6,7 +6,7 @@ namespace CalculationService.Models
 {
     public class SubstractOperation : BaseTwoParamsOperation, IOperation
     {
-        public SubstractOperation(IOperationRequest query) : base(query) { }
+        public SubstractOperation(IOperationDetails query) : base(query) { }
 
         public int Calculate()
         {

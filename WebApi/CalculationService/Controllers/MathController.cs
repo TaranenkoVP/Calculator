@@ -27,17 +27,17 @@ namespace CalculationService.Controllers
 
         [HttpGet]
         [Route("calculate")]
-        public async Task<OperationFinalResult> Calculate([FromQuery] TwoParamsMathOperationQuery operationQuery)
+        public async Task<OperationFinalResult> Calculate([FromQuery] TwoParamsOperationQuery operationQuery)
         {
             //TODO automapper
-            var operation = new OperationRequest()
+            var operation = new OperationDetails()
             {
                 OperationType = operationQuery.OperationType,
                 Parameter1 = operationQuery.Parameter1,
                 Parameter2 = operationQuery.Parameter2
             };
 
-            var results = _mathService.Culculate(operation);
+            var results = _mathService.Calculate(operation);
 
             return new OperationFinalResult()
             {

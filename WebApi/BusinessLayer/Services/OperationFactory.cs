@@ -8,7 +8,7 @@ namespace CalculationService.Services
 {
     public class OperationFactory : IOperationFactory
     {
-        public IOperation GetOperation(IOperationRequest operationQuery)
+        public IOperation GetOperation(IOperationDetails operationQuery)
         {
             //TO DO consider reflection to map OperationType with query model
             if (operationQuery.OperationType.ToLower() == "addition")

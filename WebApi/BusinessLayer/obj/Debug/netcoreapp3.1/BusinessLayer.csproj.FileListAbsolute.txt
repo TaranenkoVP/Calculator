@@ -30,7 +30,6 @@ C:\Repo\interview\Repo\WebApi\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLaye
 C:\Repo\interview\Repo\WebApi\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLayer.runtimeconfig.dev.json
 C:\Repo\interview\Repo\WebApi\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLayer.dll
 C:\Repo\interview\Repo\WebApi\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLayer.pdb
-C:\Repo\interview\Repo\WebApi\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csprojAssemblyReference.cache
 C:\Repo\interview\Repo\WebApi\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.AssemblyInfoInputs.cache
 C:\Repo\interview\Repo\WebApi\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.AssemblyInfo.cs
 C:\Repo\interview\Repo\WebApi\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.CoreCompileInputs.cache

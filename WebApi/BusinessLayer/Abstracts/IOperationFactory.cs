@@ -5,6 +5,6 @@ namespace BusinessLayer.Abstracts
 {
     public interface IOperationFactory
     {
-        IOperation GetOperation(IOperationRequest operationQuery);
+        IOperation GetOperation(IOperationDetails operationQuery);
     }
 }

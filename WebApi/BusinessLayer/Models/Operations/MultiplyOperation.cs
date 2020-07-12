@@ -6,7 +6,7 @@ namespace CalculationService.Models
 {
     public class MultiplyOperation : BaseTwoParamsOperation, IOperation
     {
-        public MultiplyOperation(IOperationRequest query) : base(query) { }
+        public MultiplyOperation(IOperationDetails query) : base(query) { }
 
         public int Calculate()
         {

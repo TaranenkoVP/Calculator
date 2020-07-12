@@ -1,18 +1,12 @@
-﻿using CalculationService.Abstracts;
+﻿using BusinessLayer.Models.Operations;
+using CalculationService.Abstracts;
 using CalculationService.Interface;
 
 namespace CalculationService.Models
 {
-    public class SubstractOperation : IOperation
+    public class SubstractOperation : BaseTwoParamsOperation, IOperation
     {
-        private int parameter1;
-        private int parameter2;
-
-        public SubstractOperation(IMathOperation query)
-        {
-            parameter1 = query.Parameter1;
-            parameter2 = query.Parameter2;
-        }
+        public SubstractOperation(IOperationRequest query) : base(query) { }
 
         public int Calculate()
         {

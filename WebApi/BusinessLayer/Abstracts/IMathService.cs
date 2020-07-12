@@ -5,6 +5,6 @@ namespace BusinessLayer.Abstracts
 {
     public interface IMathService
     {
-        OperationResult Culculate(IMathOperation operationQuery);
+        OperationResult Calculate(IOperationRequest operationQuery);
     }
 }

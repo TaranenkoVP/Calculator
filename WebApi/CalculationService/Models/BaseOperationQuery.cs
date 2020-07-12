@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CalculationService.Models
 {
-    public abstract class BaseMathOperationQuery
+    public abstract class BaseOperationQuery
     {
         [FromQuery(Name = "operationType")]
         public string OperationType { get; set; }

@@ -1,11 +1,8 @@
 ﻿using CalculationService.Interface;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessLayer.Models
 {
-    public class OperationRequest : IMathOperation
+    public class OperationRequest : IOperationRequest
     {
         public string OperationType { get; set; }
         public int Parameter1 { get; set; }

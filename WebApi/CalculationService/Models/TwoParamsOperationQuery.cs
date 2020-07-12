@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CalculationService.Models
 {
-    public class TwoParamsMathOperationQuery : BaseMathOperationQuery, IMathOperationQuery
+    public class TwoParamsOperationQuery : BaseOperationQuery, IOperationQuery
     {
         [FromQuery(Name = "parameter1")]
         public int Parameter1 { get; set; }

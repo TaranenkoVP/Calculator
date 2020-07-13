@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessLayer.Abstracts;
+using BusinessLayer.Infrastructure;
 using BusinessLayer.Services;
 using CalculationService.Abstracts;
 using CalculationService.Models;
@@ -35,6 +36,8 @@ namespace CalculationService
             services.AddSingleton<IOperation, MultiplyOperation>();
             services.AddSingleton<IOperation, DivisionOperation>();
             services.AddSingleton<IMathService, MathService>();
+            services.AddTransient<IQueryParser, QueryParser>();
+            //services.AddTransient(typeof(IQueryParser<>), typeof(QueryParser));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

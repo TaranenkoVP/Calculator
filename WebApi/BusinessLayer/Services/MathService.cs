@@ -1,46 +1,38 @@
 ﻿using BusinessLayer.Abstracts;
+using BusinessLayer.Infrastructure;
 using BusinessLayer.Models;
 using BusinessLayer.Models.ResultModels;
-using CalculationService.Abstracts;
-using System;
-using System.Collections.Generic;
 
 namespace BusinessLayer.Services
 {
     public class MathService : IMathService
     {
-        private readonly IEnumerable<IOperation> _operations;
+        private readonly IQueryParser _queryParser;
 
-        public MathService(IEnumerable<IOperation> operations)
+        public MathService(IQueryParser queryParser)
         {
-            _operations = operations;
+            _queryParser = queryParser;
         }
 
         public ICalculationResult Calculate(string query)
         {
-            //TODO need to implement correct tree handling
-            int totalCount = 0;
-            bool handlerFound = false;
-
-            foreach(var operation in _operations)
-            {
-                var position = query.IndexOf(operation.Symbol);
-                if (position != -1)
-                {
-                    var param1 = int.Parse(query.Substring(0, position));
-                    var param2 = int.Parse(query.Substring(position + 1));
-
-                    totalCount = operation.Calculate(param1, param2);
-                    handlerFound = true;
-                }
-            }
-
-            if (!handlerFound)
-                throw new Exception("Unknown operation!");
+            var tree =_queryParser.Parse(query);
+            int totalCount = CalculateTotal(tree);
 
             var result = new CalculationResultWithColor() { Result = totalCount, ResultColor = "green" };
 
             return result;
+        }
+
+        private int CalculateTotal(OperationNode<int> note)
+        {
+            //TODO need to implement correct tree handling
+            if (note.Next == null)
+                return 0;
+
+            var total = note.Operation.Calculate(note.Param, note.Next.Param);
+
+            return total;
         }
     }
 }

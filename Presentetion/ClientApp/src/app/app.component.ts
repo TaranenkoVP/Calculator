@@ -11,10 +11,6 @@ export class AppComponent {
   public parameter1 = 0;
   public parameter2 = 0;
   public result = 0;
-  public selectedType;
-
-  constructor(private http: HttpClient) { }
-
   public operationTypes: OperationTypes[] =
     [
       {
@@ -31,6 +27,9 @@ export class AppComponent {
       }
     ];
 
+  public selectedType = this.operationTypes[0].symbol;
+
+  constructor(private http: HttpClient) { }
 
   public calculate() {
     const baseUrlToApi = "https://localhost:44397";

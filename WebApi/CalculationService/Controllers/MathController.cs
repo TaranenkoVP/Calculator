@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using BusinessLayer.Abstracts;
+using BusinessLayer.Models;
 using CalculationService.Abstracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,27 +21,21 @@ namespace CalculationService.Controllers
 
         [HttpGet]
         [Route("calculate")]
-        public async Task<ActionResult<OperationResult>> Calculate([FromQuery] string query)
+        public IActionResult Calculate([FromQuery] string query)
         {
             // https://localhost:44397/api/Math/calculate?query=11%2B61 example
 
             if (string.IsNullOrWhiteSpace(query))
                 return BadRequest();
 
-            var result = new OperationResult();
-
             try
             {
-                var results = _mathService.Calculate(query);
-                result.Result = results.Result;
-                result.Color = results.ResultColor;
+                return new ObjectResult(_mathService.Calculate(query));
             }
             catch (Exception)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
-
-            return result;
         }
     }
 }

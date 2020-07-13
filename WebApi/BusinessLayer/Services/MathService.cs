@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Abstracts;
 using BusinessLayer.Models;
+using BusinessLayer.Models.ResultModels;
 using CalculationService.Abstracts;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace BusinessLayer.Services
             _operations = operations;
         }
 
-        public OperationResult Calculate(string query)
+        public ICalculationResult Calculate(string query)
         {
             //TODO need to implement correct tree handling
             int totalCount = 0;
@@ -37,7 +38,7 @@ namespace BusinessLayer.Services
             if (!handlerFound)
                 throw new Exception("Unknown operation!");
 
-            var result = new OperationResult() { Result = totalCount };
+            var result = new CalculationResultWithColor() { Result = totalCount, ResultColor = "green" };
 
             return result;
         }

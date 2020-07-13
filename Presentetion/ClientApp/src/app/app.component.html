@@ -5,14 +5,15 @@
   </div>
   <div>
     <div>
-      <input type="number" [(ngModel)]="parameter1" />`
+      <input type="number" [(ngModel)]="parameter1" style="margin-left: 15px;"/>`
 
-      <select [(ngModel)]="selectedType">
+      <select [(ngModel)]="selectedType" class="padding-right">
         <option *ngFor="let operationType of operationTypes">
           {{operationType.symbol}}
         </option>
       </select>
-      <input type="number" [(ngModel)]="parameter2" />`
+
+      <input type="number" [(ngModel)]="parameter2" style="margin-left: 10px;"/>`
 
       <span> = </span>
 

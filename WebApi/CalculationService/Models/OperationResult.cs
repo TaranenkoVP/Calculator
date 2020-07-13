@@ -1,6 +1,6 @@
 ﻿namespace CalculationService.Abstracts
 {
-    public class OperationResult
+    public class OperationResult : IOperationResult
     {
         public int Result { get; set; }
         public string Color { get; set; }

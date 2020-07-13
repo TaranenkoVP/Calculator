@@ -1,8 +1,7 @@
 ﻿namespace BusinessLayer.Models
 {
-    public class OperationResult
+    public class CalculationResult : ICalculationResult
     {
         public int Result { get; set; }
-        public string ResultColor { get; set; }
     }
 }
